@@ -21,7 +21,7 @@ Unless noted otherwise, anything inclosed in angle brackets "<" and ">" eg. `<ex
 It might ask you if you want to continue since it’s your first time connecting to this machine, select yes.
 4. Update the system by typing `apt update && apt upgrade` for Ubuntu and Debian  
 If it ask if you want to continue, select yes  
-If you get a message about upgrading kernel, reboot after finishing
+If you get a message about upgrading kernel, reboot after finishing  
 If asked what services should be restarted keep the default options (or selected more if you know what you're doing)
 If logged out of ssh log back in (refer to step 3)
 5. Logout of ssh `exit`
