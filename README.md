@@ -19,7 +19,7 @@ Unless noted otherwise, anything inclosed in angle brackets "<" and ">" eg. `<ex
 1. Locate your server IP address (listed on https://cloud.linode.com/linodes/<linode-id> for linode)
 2. Open a terminal on your machine (Windows 10 and 11 have this built in by default now I think, if not other options are available)
 3. In your terminal `ssh root@<ip address>` hit enter  
-  It might ask you if you want to continue since it’s your first time connecting to this machine, select yes  
+  It might ask you if you want to continue since it’s your first time connecting to this machine, select yes
 4. Update the system `apt update && apt upgrade` for Ubuntu and Debian  
 If it ask if you want to continue, select yes  
 If you get a message about upgrading kernel, reboot after finishing  
