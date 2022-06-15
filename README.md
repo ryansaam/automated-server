@@ -1,5 +1,5 @@
 # Automated Server
-The goal of this guide is to provide a basic list of steps for creating a fresh cloud server setup. The setup is geared for the purpose of automatic deployment for APIs and Webapps using Github Actions. I am not a profesional at server configuration and my guide could potentially lead to sercurity risks that I'm unaware of. However, this infomation is mostly gathered from varies other guides which I assume was written by server configuration experts.
+The goal of this guide is to provide a basic list of steps for creating a fresh cloud server setup. The setup is geared for the purpose of automatic deployment for APIs and Webapps using Github Actions. I am not a profesional at server configuration and my guide could potentially lead to sercurity risks that I'm unaware of. However, this infomation is mostly gathered from various other guides which I assume was written by server configuration experts.
 
 Unless noted otherwise, anything inclosed in angle brackets "<" and ">" eg. `<example>` should be assumed to be a placeholder, and the actual input is up to the person following this guide or their specific use case.
 
