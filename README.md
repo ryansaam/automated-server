@@ -13,8 +13,8 @@ Unless noted otherwise, anything inclosed in angle brackets "<" and ">" eg. `<ex
 7. (optional) create or select a tag(s) under “Add Tags”
 8. Create a secure root password under “Root Password”  
    (I recommend using a password generator site like https://passwordsgenerator.net/ with a length of 16 characters)
-12. Click Create Linode
-13. Wait for “Running” indicator at top left of https://cloud.linode.com/linodes/<linode-id>
+9. Click Create Linode
+10. Wait for “Running” indicator at top left of https://cloud.linode.com/linodes/<linode-id>
 ### Setting up server with SSH [Jun 2022]:
 1. Locate your server IP address (listed on https://cloud.linode.com/linodes/<linode-id> for linode)
 2. Open a terminal on your machine (Windows 10 and 11 have this built in by default now I think, if not other options are available)
