@@ -72,7 +72,7 @@ You should now be ready to configure the rest of the server through scripting. I
     edit `#AddressFamily any` to `AddressFamily inet`  
     Save sshd_config and then `sudo systemctl restart sshd`
 11. Logout (step 3) and then to verify the last steps try logging into root with `ssh root@<ipv4 address>`,  
-   after confirming you can't login to root, log back in with limited user (step 21)
+   after confirming you can't login to root, log back in with limited user (step 1)
 12. To setup a firewall run `sudo apt-get install ufw` 
       To allow all outgoing run `sudo ufw default allow outgoing`  
       To deny all incoming run `sudo ufw default deny incoming`  
