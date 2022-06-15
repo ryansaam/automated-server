@@ -43,33 +43,45 @@ If logged out of ssh log back in (refer to step 3)
 13. Login to the limited user `ssh limited@<ip address>`
 14. Type `sudo chmod -R 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys`
 15. Logout (step 5)
+### Finish Configuration with Scripts
+You should now be ready to configure the rest of the server through scripting. If you would prefer to continue with manual configuration read section:  
+   "(Continued) Setting up server with SSH [Jun 2022]:"
 
-
-8. Set hostname by typing `hostnamectl set-hostname <example-hostname>` (could be whatever you want but should be memorable or descriptive)
-9. Logout (step 10) and log back in (step 3) to verify hostname change at top of terminal window, and/or type `hostname` after logging in
-10. (optional) Change timezone  
+### (Continued) Setting up server with SSH [Jun 2022]:
+1. Login to limited user `ssh limited@<ipv4 address>`  
+   you should no longer need to type a password when logging in if everything was done correctly
+2. Set hostname by typing `sudo hostnamectl set-hostname <example-hostname>` (could be whatever you want but should be memorable or descriptive)
+3. Logout `exit`
+4. Log back in (step 1) to verify hostname change at top of terminal window, and/or type `hostname` after logging in
+7. Edit your "hosts" file to configure domain name  
+   Type `sudo vim /etc/hosts`  
+   at the bottom add 3 lines:
+   ```
+   127.0.0.1 localhost.<your domain name> localhost
+   <ipv4 address> <your hostname>.<your domain name> <your hostname>
+   <ipv6 address> <your hostname>.<your domain name> <your hostname>
+   ```
+   then save the file
+8. (optional) Change timezone  
   `timedatectl list-timezones` to list timezones,  
   then `timedatectl set-timezone '<timezone you want from list>'`
-11. type `date` to verify your timezone is set correctly
-  
-
-Type vim /etc/hosts to edit hosts file, at the bottom add 3 lines:  127.0.0.1 localhost.<your domain name> localhost, add 
-<ipv4 address> <your hostname>.<your domain name> <your hostname>, add <ipv6 address> <your hostname>.<your domain name> <your hostname>,
-then save the file (for later domain name configuration)
-(optional) on compatible OSs edit “hosts” file to include the hostname created in step 15, type vim /etc/hosts and add the line <ipv4 server address> <hostname> at the bottom, this will allow you to login with ssh <username>@<hostname> which is easier than finding/remembering the ipv4 address like in step 3
-Login (from now on) by typing ssh <username>@<hostname>
-Logout (step 10)
-Login (step 21)
-Logout (step 10), Login (step 21), you should no longer need to type a password when logging in if everything was done correctly
-Now disallow login into root user and disallow logging in with password by editing sudo vim /etc/ssh/sshd_config, edit line “PermitRootLogin yes” to PermitRootLogin no, then edit line “PasswordAuthentication yes” to PasswordAuthentication no
-While still in sshd_config edit “#AddressFamily any” to AddressFamily inet
-Save sshd_config and then type sudo systemctl restart sshd 
-Logout (step 10) and then to verify the last steps try logging into root with ssh root@<hostname>, then after confirming, log back in with limited user (step 21)
-To setup a firewall run sudo apt-get install ufw
-To allow all outgoing run sudo ufw default allow outgoing and deny all incoming run sudo ufw default deny incoming
-To allow ssh run sudo ufw allow ssh
-To allow http run  sudo ufw allow 80/tcp,  sudo ufw allow http/tcp & sudo ufw allow https/tcp
-Enable ufw with sudo ufw enable
-Check rules with sudo ufw status
+9. Type `date` to verify your timezone is set correctly
+10. Now disallow login into root user and disallow logging in with password by editing `sudo vim /etc/ssh/sshd_config`,  
+    edit line `PermitRootLogin yes` to `PermitRootLogin no`,  
+    edit line `PasswordAuthentication yes` to `PasswordAuthentication no`  
+    edit `#AddressFamily any` to `AddressFamily inet`  
+    Save sshd_config and then type sudo systemctl restart sshd
+11. Logout (step 3) and then to verify the last steps try logging into root with `ssh root@<ipv4 address>`,  
+   after confirming you can't login to root, log back in with limited user (step 21)
+12. To setup a firewall run `sudo apt-get install ufw` 
+      To allow all outgoing run `sudo ufw default allow outgoing`  
+      To deny all incoming run `sudo ufw default deny incoming`  
+      To allow ssh run `sudo ufw allow ssh`
+      To allow http run `sudo ufw allow http/tcp` and https `sudo ufw allow https/tcp`
+      Enable ufw with `sudo ufw enable`
+      Check rules with `sudo ufw status`
+13. (optional) Logout (step 3) on compatible OSs edit “hosts” file to include the hostname created in step 2,  
+      type `sudo vim /etc/hosts` and add the line `<ipv4 server address> <hostname>` at the bottom,  
+      this will allow you to login with `ssh <username>@<hostname>` which is easier than finding/remembering the ipv4 address like in step 1
 Done!
 
