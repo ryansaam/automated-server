@@ -76,9 +76,9 @@ You should now be ready to configure the rest of the server through scripting. I
 12. To setup a firewall run `sudo apt-get install ufw` 
       To allow all outgoing run `sudo ufw default allow outgoing`  
       To deny all incoming run `sudo ufw default deny incoming`  
-      To allow ssh run `sudo ufw allow ssh`
-      To allow http run `sudo ufw allow http/tcp` and https `sudo ufw allow https/tcp`
-      Enable ufw with `sudo ufw enable`
+      To allow ssh run `sudo ufw allow ssh`  
+      To allow http run `sudo ufw allow http/tcp` and https `sudo ufw allow https/tcp`  
+      Enable ufw with `sudo ufw enable`  
       Check rules with `sudo ufw status`
 13. (optional) Logout (step 3) on compatible OSs edit “hosts” file to include the hostname created in step 2,  
       type `sudo vim /etc/hosts` and add the line `<ipv4 server address> <hostname>` at the bottom,  
